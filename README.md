@@ -27,7 +27,8 @@ cp example.env .env
 
 rm -rf android/app/src/main/res/drawable-*
 npx expo prebuild --clean
-echo "sdk.dir = C:\\\Users\\\anish\\\AppData\\\Local\\\Android\\\Sdk" >> android\local.properties
+echo "sdk.dir = C:\\\Users\\\anish\\\AppData\\\Local\\\Android\\\Sdk" >> android\\local.properties
 npx react-native build-android --mode=release
+set NODE_ENV='production' && npx react-native build-android --mode=release
 ./gradlew bundleRelease
 ```

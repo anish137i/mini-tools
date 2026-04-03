@@ -1,8 +1,16 @@
-import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Image, Linking } from 'react-native';
-import { Link, useRouter } from 'expo-router';
-import { Theme } from '@/constants/theme';
-import { Ionicons } from '@expo/vector-icons';
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  ScrollView,
+  Image,
+  Linking,
+} from "react-native";
+import { Link, useRouter } from "expo-router";
+import { Theme } from "@/constants/theme";
+import { Ionicons } from "@expo/vector-icons";
 
 type Tool = {
   name: string;
@@ -13,28 +21,28 @@ type Tool = {
 
 const tools: Tool[] = [
   {
-    name: 'GST Calculator',
-    route: '/gst',
-    icon: 'receipt-outline',
-    color: '#6366f1',
+    name: "GST Calculator",
+    route: "/gst",
+    icon: "receipt-outline",
+    color: "#6366f1",
   },
   {
-    name: 'EMI Calculator',
-    route: '/emi',
-    icon: 'calendar-outline',
-    color: '#0ea5e9',
+    name: "EMI Calculator",
+    route: "/emi",
+    icon: "calendar-outline",
+    color: "#0ea5e9",
   },
   {
-    name: 'Compound Interest',
-    route: '/compound',
-    icon: 'trending-up-outline',
-    color: '#10b981',
+    name: "Compound Interest",
+    route: "/compound",
+    icon: "trending-up-outline",
+    color: "#10b981",
   },
   {
-    name: 'BMI Calculator',
-    route: '/bmi',
-    icon: 'body-outline',
-    color: '#f43f5e',
+    name: "BMI Calculator",
+    route: "/bmi",
+    icon: "body-outline",
+    color: "#f43f5e",
   },
 ];
 
@@ -45,7 +53,7 @@ export default function HomeScreen() {
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <View style={styles.header}>
         <Image
-          source={require('@/assets/images/logo.png')}
+          source={require("@/assets/images/logo.jpg")}
           style={styles.logo}
           resizeMode="contain"
         />
@@ -61,7 +69,12 @@ export default function HomeScreen() {
             activeOpacity={0.7}
             onPress={() => router.push(tool.route as any)}
           >
-            <View style={[styles.iconContainer, { backgroundColor: tool.color + '15' }]}>
+            <View
+              style={[
+                styles.iconContainer,
+                { backgroundColor: tool.color + "15" },
+              ]}
+            >
               <Ionicons name={tool.icon} size={32} color={tool.color} />
             </View>
             <Text style={styles.cardTitle}>{tool.name}</Text>
@@ -73,7 +86,7 @@ export default function HomeScreen() {
       </View>
 
       <TouchableOpacity
-        onPress={() => Linking.openURL('https://anishmandal.in')}
+        onPress={() => Linking.openURL("https://anishmandal.in")}
         style={styles.footer}
       >
         <Text style={styles.footerText}>
@@ -94,7 +107,7 @@ const styles = StyleSheet.create({
   },
   header: {
     marginBottom: Theme.spacing.xl,
-    alignItems: 'center',
+    alignItems: "center",
   },
   logo: {
     width: 80,
@@ -104,24 +117,24 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontWeight: '800',
+    fontWeight: "800",
     color: Theme.colors.text,
-    textAlign: 'center',
+    textAlign: "center",
   },
   subtitle: {
     fontSize: 16,
     color: Theme.colors.textSecondary,
     marginTop: 4,
-    textAlign: 'center',
+    textAlign: "center",
   },
   grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: "row",
+    flexWrap: "wrap",
     gap: Theme.spacing.md,
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
   },
   card: {
-    width: '47%',
+    width: "47%",
     backgroundColor: Theme.colors.surface,
     padding: Theme.spacing.lg,
     borderRadius: Theme.borderRadius.lg,
@@ -134,34 +147,34 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: Theme.borderRadius.md,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     marginBottom: Theme.spacing.md,
   },
   cardTitle: {
     fontSize: 16,
-    fontWeight: '700',
+    fontWeight: "700",
     color: Theme.colors.text,
     marginBottom: 8,
   },
   cardAction: {
     fontSize: 14,
     color: Theme.colors.primary,
-    fontWeight: '600',
+    fontWeight: "600",
   },
   footer: {
     marginTop: Theme.spacing.xl,
     paddingVertical: Theme.spacing.md,
-    alignItems: 'center',
+    alignItems: "center",
   },
   footerText: {
     fontSize: 14,
     color: Theme.colors.textSecondary,
-    fontWeight: '500',
+    fontWeight: "500",
   },
   footerLink: {
     color: Theme.colors.primary,
-    fontWeight: '700',
-    textDecorationLine: 'underline',
+    fontWeight: "700",
+    textDecorationLine: "underline",
   },
 });

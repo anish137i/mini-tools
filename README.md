@@ -12,7 +12,7 @@ cp example.env .env
 1. Install dependencies
 
    ```bash
-   npm install
+   npx expo install
    ```
 
 2. Start dev app
@@ -23,12 +23,38 @@ cp example.env .env
 
 ## Build for Android
 
+#### check if EAS not installed 
+
+```bash
+npx eas -v
+
+
+```
+
+#### Install EAS
+```bash
+npm i -g eas-cli
+
+```
+
+#### Check is EAS is login
 ```bash
 
-rm -rf android/app/src/main/res/drawable-*
-npx expo prebuild --clean
-echo "sdk.dir = C:\\\Users\\\anish\\\AppData\\\Local\\\Android\\\Sdk" >> android\\local.properties
-npx react-native build-android --mode=release
-set NODE_ENV='production' && npx react-native build-android --mode=release
-./gradlew bundleRelease
+npx eas whoami
+
+```
+
+#### Login in EAS (Use Google)
+
+```bash
+
+npx eas login
+
+```
+
+#### Build Android for AAp
+
+```bash
+npx eas build --platform android
+
 ```
